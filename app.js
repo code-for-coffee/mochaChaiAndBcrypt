@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-require('./db/database'); // loading persistent db connection
+require('./db/database'); // loading persistent db
 
 var routes = require('./controllers/index');
 var users = require('./controllers/users');
@@ -25,6 +25,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+// setup sessions
+app.use(require('express-session')({
+  secret: 'spacecats',
+  resave: false,
+  saveUninitialzed: false
+}));// end session
 
 app.use('/', routes);
 app.use('/users', users);
