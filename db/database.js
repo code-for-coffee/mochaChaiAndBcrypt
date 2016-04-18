@@ -6,11 +6,11 @@ console.log('Attempting to connect to MongoDB');
 mongoose.connect(connectionString); // connect to the db supplied in the connectionString
 
 mongoose.connection.on('connected', function() {
-  console.log('Mongoose connected to: localhost');
+  console.log('Mongoose connected to production server');
 });
 mongoose.connection.on('error', function(error) {
   console.log('Mongoose error! ' + error);
 });
 mongoose.connection.on('disconnected', function() {
-  console.log('Mongoose disconnected from: localhost');
+  console.log('Mongoose disconnected from production server');
 });
