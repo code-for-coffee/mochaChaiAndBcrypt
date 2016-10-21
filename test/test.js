@@ -66,27 +66,27 @@ describe('BCrypt Password Hashing/Comparison', function() {
   }); // end it
 
   // second test: comparing our valid password
-  it('should compare a valid password', function() {
-    // Load hash from your password DB.
-    var hashFromDb = db.usersPwdHash;
-    // test result from db before continuing... gotta make sure that data is right
-    expect(typeof(hashFromDb)).to.equal('string');
-    expect(hashFromDb.length).to.equal(60);
-    // use our mock user's password
-    var comparison = bcrypt.compareSync(control.mockUsersPassword, hashFromDb); // true
-    expect(comparison).to.equal(true);
-  }); // end it
-
-  it('should fail to compare an invalid password', function() {
-    // Load hash from your password DB.
-    var hashFromDb = db.usersPwdHash;
-    // test result from db before continuing... gotta make sure that data is right
-    expect(typeof(hashFromDb)).to.equal('string');
-    expect(hashFromDb.length).to.equal(60);
-    // use our mock user's password
-    var comparison = bcrypt.compareSync(control.mockIncorrectPassword, hashFromDb); // true
-    expect(comparison).to.equal(false);
-  }); // end it
+  // it('should compare a valid password', function() {
+  //   // Load hash from your password DB.
+  //   var hashFromDb = control.mockSuccessfulPasswordHashDbEntry;
+  //   // test result from db before continuing... gotta make sure that data is right
+  //   expect(typeof(hashFromDb)).to.equal('string');
+  //   expect(hashFromDb.length).to.equal(60);
+  //   // use our mock user's password
+  //   var comparison = bcrypt.compareSync(control.mockUsersPassword, hashFromDb); // true
+  //   expect(comparison).to.equal(true);
+  // }); // end it
+  //
+  // it('should fail to compare an invalid password', function() {
+  //   // Load hash from your password DB.
+  //   var hashFromDb = control.mockSuccessfulPasswordHashDbEntry;
+  //   // test result from db before continuing... gotta make sure that data is right
+  //   expect(typeof(hashFromDb)).to.equal('string');
+  //   expect(hashFromDb.length).to.equal(60);
+  //   // use our mock user's password
+  //   var comparison = bcrypt.compareSync(control.mockIncorrectPassword, hashFromDb); // true
+  //   expect(comparison).to.equal(false);
+  // }); // end it
 }); // end describe
 
 
